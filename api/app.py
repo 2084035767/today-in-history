@@ -12,11 +12,14 @@ url = 'https://api.ahfi.cn/api/lsjt'
 params = {
     'format': 'json'
 }
+today = date.today()
+
+
 with requests.get(url, headers=headers, params=params) as r:
     day = r.json()['day']
-    content = r.json()['content']
+    text = r.json()['content']
 
-today = date.today()
+content = text
 
 
 @app.route('/')
