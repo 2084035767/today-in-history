@@ -1,7 +1,6 @@
 from datetime import date
 from flask import Flask, render_template
 import requests
-from gevent import pywsgi
 
 app = Flask(__name__)
 
@@ -27,5 +26,3 @@ def index():
     return render_template("index.html", content=content, today=today)
 
 
-server = pywsgi.WSGIServer(('0.0.0.0', 8080), app)
-server.serve_forever()
